@@ -78,6 +78,11 @@ h4 {
 .item span {
   font-style: normal;
 }
+
+.item img {
+  width: 100%;
+}
+
 .panel {
   border: 1px solid #333;
   border-radius: 0 !important;
@@ -189,6 +194,65 @@ footer .glyphicon {
   .logo {
     font-size: 150px;
   }
+}
+
+/** iNaturalist style */
+.inat-widget {
+  padding: 10px;
+  line-height: 1;
+}
+.inat-widget-header {
+  margin-bottom: 10px;
+}
+.inat-widget td {
+  padding-bottom: 10px;
+}
+.inat-label {
+  color: #888;
+}
+.inat-meta {
+  font-size: smaller;
+  margin-top: 3px;
+  line-height: 1.2;
+}
+.inat-observation-body,
+.inat-user-body {
+  padding-left: 10px;
+}
+.inat-observation-image {
+  text-align: center;
+}
+.inat-observation-image,
+.inat-user-image {
+  width: 48px;
+  display: inline-block;
+}
+.inat-observation-image img,
+.inat-user-image img {
+  max-width: 48px;
+}
+.inat-observation-image img {
+  vertical-align: middle;
+}
+.inat-widget-small .inat-observation-image {
+  margin: 0 3px 3px 0;
+  height: 48px;
+}
+.inat-label,
+.inat-value,
+.inat-user {
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+.inat-widget .inat-footer td.inat-value {
+  padding-left: 10px;
+  border-top: none;
+}
+
+.uncertainty-div {
+  width: 100px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ddd;
 }
 
 /** toolbox */
