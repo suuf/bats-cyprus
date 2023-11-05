@@ -193,6 +193,20 @@ h4 {
   border-color: transparent;
   color: #fff !important;
 }
+.navbar .dropdown .dropdown-menu {
+  color: #fff !important;
+  background-color: #333;
+}
+.navbar .dropdown-menu {
+  margin-top: -1px !important;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.navbar .dropdown.open .dropdown-toggle {
+  color: #d57800 !important;
+  background-color: #606060 !important;
+}
+
 footer .glyphicon {
   font-size: 20px;
   margin-bottom: 20px;
