@@ -6,15 +6,7 @@
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-DWGS6L1T5V"
     ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-DWGS6L1T5V");
-    </script>
+    <script src="./scripts/analytics.js"></script>
     <!-- Theme Made By www.w3schools.com -->
     <title>Bats of Cyprus</title>
     <meta charset="utf-8" />
@@ -39,6 +31,8 @@
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="index.js"></script>
     <script src="./scripts/sendmail.js"></script>
+    <script src="./components/header.js"></script>
+    <script src="./components/footer.js"></script>
     <meta name="keywords" content="bats, chiroptera, cyprus" />
     <meta
       name="description"
@@ -48,32 +42,7 @@
     <meta property="og:title" content="Bats of Cyprus" />
   </head>
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button
-            type="button"
-            class="navbar-toggle"
-            data-toggle="collapse"
-            data-target="#myNavbar"
-          >
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#myPage">Bats of Cyprus</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#contribute">CONTRIBUTE</a></li>
-            <li><a href="#whatwedo">WHAT WE DO</a></li>
-            <li><a href="#photos">PHOTOS</a></li>
-            <li><a href="#contact">CONTACT</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <header-component></header-component>
 
     <div class="jumbotron text-center">
       <h1>Bats of Cyprus</h1>
@@ -1091,19 +1060,6 @@
       />s
     -->
 
-    <footer class="container-fluid text-center">
-      <a href="#myPage" title="To Top">
-        <span class="glyphicon glyphicon-chevron-up"></span>
-      </a>
-
-      <!--
-        <p>
-          Bootstrap Theme Made By
-          <a href="https://www.w3schools.com" title="Visit w3schools"
-            >www.w3schools.com</a
-          >
-        </p>
-      -->
-    </footer>
+    <footer-component></footer-component>
   </body>
 </html>
