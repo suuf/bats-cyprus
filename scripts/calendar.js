@@ -107,7 +107,6 @@ $(window).on("resize", function () {
 
 function eventCaledarResize($el) {
   var width = $el.width();
-  console.log(width);
   /*
   if (flatpickr.selectedDates.length) {
     flatpickr.clear();
