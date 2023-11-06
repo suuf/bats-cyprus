@@ -14,9 +14,9 @@ body {
   color: #fff;
   padding: 40px 60px;
   text-align: center;
+  /* min-height: 600px; */
 }
 .cal-modal h3 {
-  /* font-size: 37px; */
   font-weight: 900;
   margin: 0 0 1rem;
 }
@@ -52,9 +52,46 @@ body {
   .flatpickr-months
   .flatpickr-month
   .flatpickr-current-month
-  .numInputWrapper {
+  .numInputWrapper
+  .arrowUp {
   display: none;
 }
+#calendar
+  .flatpickr-calendar
+  .flatpickr-months
+  .flatpickr-month
+  .flatpickr-current-month
+  .numInputWrapper
+  .arrowDown {
+  display: none;
+}
+#calendar
+  .flatpickr-calendar
+  .flatpickr-months
+  .flatpickr-month
+  .flatpickr-current-month
+  .numInputWrapper
+  .cur-year {
+  pointer-events: none !important;
+}
+#calendar /* fixes resizing bug */
+  .flatpickr-calendar
+  .flatpickr-months
+  .flatpickr-month
+  .flatpickr-current-month
+  .numInputWrapper
+  .cur-year:disabled {
+  color: #fff !important;
+}
+#calendar
+  .flatpickr-calendar
+  .flatpickr-months
+  .flatpickr-month
+  .flatpickr-current-month
+  .numInputWrapper:hover {
+  background: none !important;
+}
+
 #calendar .flatpickr-calendar .flatpickr-months .flatpickr-prev-month,
 #calendar .flatpickr-calendar .flatpickr-months .flatpickr-next-month {
   top: calc(50% - 23px);
@@ -149,19 +186,32 @@ body {
   margin-top: 30px;
   min-height: 36px;
 }
-@media screen and (min-width: 992px) {
+/*
+@media screen and (min-width: 900px) {
   #calendar .calendar-events {
     display: flex;
     justify-content: space-around;
   }
 }
+*/
 
 #calendar .calendar-events .event .location {
   color: #d57800;
   letter-spacing: -0.8px;
 }
 
+@media screen and (max-width: 916px) {
+  /* check thiss */
+  #calendar .calendar-events .event .location {
+    inline-size: 300px;
+  }
+}
+
 #calendar .flatpickr-monthDropdown-months {
   background-color: #333;
   color: #fff;
+}
+
+span.flatpickr-day.hidden {
+  display: unset !important;
 }

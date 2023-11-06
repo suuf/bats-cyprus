@@ -1,44 +1,85 @@
 function init() {
   var eventDates = {};
-  let day1 = formatDate(new Date(new Date().setMonth(new Date().getMonth())));
-  eventDates[day1] = [
-    "Bat Walk 📍 Athalassa National Forest Park 🕒 19:00",
-    "Event 2 📍 Place 2 🕒 Time",
-  ];
-  let day2 = formatDate(
-    new Date(new Date().setDate(new Date().getDate() + 10))
-  );
-  eventDates[day2] = ["Bat Presentation, Riverland Bio Darm"];
-
+  let today = new Date();
   // set maxDates
-  let maxDate = {
-    1: new Date(new Date().setMonth(new Date().getMonth() + 11)),
-    2: new Date(new Date().setMonth(new Date().getMonth() + 10)),
-    3: new Date(new Date().setMonth(new Date().getMonth() + 9)),
+  window.maxDate = {
+    1: new Date(new Date().setMonth(new Date().getMonth() + 3)),
+    2: new Date(new Date().setMonth(new Date().getMonth() + 2)),
+    3: new Date(new Date().setMonth(new Date().getMonth() + 1)),
   };
+
+  /*
+
+  // Once-off Events
+  let day1 = formatDate(new Date("2023-11-02"));
+  eventDates[day1] = [
+    "Event Name 📍 Location 🕒 Time",
+    // add 2nd event if needed
+  ];
+
+  let dayThursdays = new Date("2023-11-02");
+  // Weekly Events
+  let weeklyEventName =
+    "Weekly Event Name 📍 Weekly Event Location 🕒 Weekly Event Time";
+  for (let i = 1; i < 3; i++) {
+    // set i to number of repeat times
+    let dayx = formatDate(
+      new Date(new Date(dayThursdays).setDate(dayThursdays.getDate() + i * 7))
+    );
+    if (eventDates[dayx]) {
+      eventDates[dayx].push(weeklyEventName);
+    } else {
+      eventDates[dayx] = [weeklyEventName];
+    }
+  }
+
+  // Fortnight Events
+  let fortnightEventName =
+    "Fortnight Event Name 📍 Fortnight Event Location 🕒 Fortnight Event Time";
+  for (let i = 1; i < 3; i++) {
+    // set i to number of repeat times
+    let dayx = formatDate(
+      new Date(new Date(dayThursdays).setDate(dayThursdays.getDate() + i * 14))
+    );
+
+    if (eventDates[dayx]) {
+      eventDates[dayx].push(fortnightEventName);
+    } else {
+      eventDates[dayx] = [fortnightEventName];
+    }
+  }
+  */
 
   window.flatpickr = $("#calendar .placeholder").flatpickr({
     inline: true,
-    minDate: "today",
+    minDate: today.getFullYear() + "-" + (today.getMonth() + 1),
     showMonths: 1,
-    maxDate: maxDate[2],
+    maxDate: window.maxDate[1],
     enable: Object.keys(eventDates),
     disableMobile: "true",
+    monthSelectorType: "static",
+    // yearSelectorType: "static", // this might get implemented one day :')
     onChange: function (date, str, inst) {
       var contents = "";
+      contents +=
+        '<div class="event"><div class="date">' +
+        window.flatpickr.formatDate(date[0], "l J F Y");
       if (date.length) {
         for (i = 0; i < eventDates[str].length; i++) {
           contents +=
-            '<div class="event"><div class="date">' +
-            flatpickr.formatDate(date[0], "l J F") +
-            '</div><div class="location">' +
+            '<div class="event">' +
+            //'<div class="date">' +
+            // window.flatpickr.formatDate(date[0], "l J F Y") +
+            // '</div>' +
+            '<div class="location">' +
             eventDates[str][i] +
-            "</div></div>";
+            "</div></div><br />";
         }
       }
       $("#calendar .calendar-events").html(contents);
     },
     locale: {
+      firstDayOfWeek: 1,
       weekdays: {
         shorthand: ["S", "M", "T", "W", "T", "F", "S"],
         longhand: [
@@ -57,31 +98,32 @@ function init() {
 
 document.addEventListener("DOMContentLoaded", function () {
   init();
-  eventCaledarResize();
+  eventCaledarResize($(window));
 });
 
-window.onresize = function () {
-  eventCaledarResize();
-};
+$(window).on("resize", function () {
+  eventCaledarResize($(this));
+});
 
-function eventCaledarResize() {
-  var width = $(window).width();
+function eventCaledarResize($el) {
+  var width = $el.width();
   console.log(width);
-  if (window.flatpickr.selectedDates.length) {
-    window.flatpickr.clear();
+  /*
+  if (flatpickr.selectedDates.length) {
+    flatpickr.clear();
   }
-  if (width >= 1200 && window.flatpickr.config.showMonths !== 3) {
-    window.flatpickr.set("showMonths", 3);
+  */
+  if (width >= 1200 && flatpickr.config.showMonths !== 3) {
+    flatpickr.set("showMonths", 3);
+    flatpickr.set("maxDate", maxDate[3]);
   }
-  if (
-    width < 1200 &&
-    width >= 900 &&
-    window.flatpickr.config.showMonths !== 2
-  ) {
-    window.flatpickr.set("showMonths", 2);
+  if (width < 1200 && width >= 900 && flatpickr.config.showMonths !== 2) {
+    flatpickr.set("showMonths", 2);
+    flatpickr.set("maxDate", maxDate[2]);
   }
-  if (width < 900 && window.flatpickr.config.showMonths !== 1) {
-    window.flatpickr.set("showMonths", 1);
+  if (width < 900 && flatpickr.config.showMonths !== 1) {
+    flatpickr.set("showMonths", 1);
+    flatpickr.set("maxDate", maxDate[1]);
     $(".flatpickr-calendar").css("width", "");
   }
 }
