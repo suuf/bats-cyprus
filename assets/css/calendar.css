@@ -1,10 +1,17 @@
-* {
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.cal-modal-container * {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
 }
 
-body {
+.cal-modal-container body {
   padding: 0;
   margin: 0;
 }
@@ -212,6 +219,37 @@ body {
   color: #fff;
 }
 
-span.flatpickr-day.hidden {
+#calendar span.flatpickr-day.hidden {
   display: unset !important;
+}
+
+@media screen and (max-width: 510px) {
+  .cal-modal {
+    padding: 40px 15px;
+  }
+
+  #calendar .day-container {
+    padding: 0 0.5px;
+  }
+
+  #calendar .flatpickr-day {
+    width: 20px !important;
+  }
+
+  #calendar .flatpickr-next-month,
+  #calendar .flatpickr-prev-month {
+    padding: 0;
+
+    svg {
+      height: 35px !important;
+      width: 35px !important;
+    }
+  }
+
+  #calendar .flatpickr-next-month {
+    right: -7% !important;
+  }
+  #calendar .flatpickr-prev-month {
+    left: -7% !important;
+  }
 }
