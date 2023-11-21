@@ -204,6 +204,7 @@ h4 {
 .navbar .dropdown .dropdown-menu {
   color: #fff !important;
   background-color: #333;
+  font-size: 12px;
 }
 .navbar .dropdown-menu {
   margin-top: -1px !important;
