@@ -31,8 +31,9 @@ class HeaderSecondary extends HTMLElement {
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
                     aria-haspopup="true" aria-expanded="false">MORE <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="./news.html">News</a></li>
-                        <li><a href="./calendar.html">Calendar</a></li>
+                        <li><a href="./index.html#find">FIND OUT MORE</a></li>
+                        <li><a href="./news.html">NEWS</a></li>
+                        <li><a href="./calendar.html">CALENDAR</a></li>
                     </ul>
                 </li>
             </ul>
