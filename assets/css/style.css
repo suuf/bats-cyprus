@@ -109,6 +109,7 @@ h4 {
   bottom: 0;
   left: 1%;
   right: 1%;
+  opacity: 0.9;
 }
 
 .carousel-caption p {
@@ -259,6 +260,9 @@ footer .glyphicon {
   .btn-lg {
     width: 100%;
     margin-bottom: 35px;
+  }
+  .jumb-right {
+    text-align: center;
   }
 }
 @media screen and (max-width: 480px) {
