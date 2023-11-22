@@ -18,7 +18,12 @@ class HeaderSecondary extends HTMLElement {
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="./index.html">Bats of Cyprus</a>
+            <a class="navbar-brand" href="./index.html">
+            <div> 
+            <img class="logo" src="./assets/bats_cyprus_2.svg" alt="bats cyprus logo" height="20px">
+            Bats of Cyprus
+            </div>            
+            </a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
